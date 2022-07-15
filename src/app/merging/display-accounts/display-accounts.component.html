@@ -1,0 +1,145 @@
+
+<!--<table class="table table-light table-hover">
+    <thead class="table-secondary">
+        <tr mat-row class=" table-dark">
+        <td>Id</td>&nbsp;
+        <td>Name</td>&nbsp;
+        <td>Surname</td>&nbsp;
+        <td>Email</td>&nbsp;
+        <td>PhoneNumber</td>&nbsp;
+        </tr>
+    </thead>
+    <tbody class="table-striped table-success">
+        <tr mat-row  *ngFor="let UserVal of UserDetails">
+        <td><span>{{UserVal.id}}</span></td>&nbsp;
+        <td><span>{{UserVal.name}}</span></td>&nbsp;
+        <td><span>{{UserVal.surname}}</span></td>&nbsp;
+        <td><span>{{UserVal.email}}</span></td>&nbsp;
+        <td><span>{{UserVal.phoneNumber}}</span></td>&nbsp;
+        </tr>
+        
+    </tbody>
+</table>-->
+
+
+
+
+<div class="container">
+    <h4>Please enter user details to search for duplicate accounts you want to merge..</h4>
+    <br>
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+        <div class="form-group input-group-lg">
+            <input class="form-control" placeholder="Identifier 1" formControlName="identifier1">
+        </div>
+        <br>
+        <div class="form-group input-group-lg">
+            <input class="form-control" placeholder="Identifier 2" formControlName="identifier2">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-danger btn-block btn-lg">Submit</button>
+        </div>
+    </form>
+
+    <br>
+<br>
+<table class="table table-light table-hover" *ngIf="show">
+    <thead class="table-secondary">
+        <tr mat-row class=" table-dark">
+        <td>UserId</td>&nbsp;
+        <td>Name</td>&nbsp;
+        <td>Surname</td>&nbsp;
+        <td>Email</td>&nbsp;
+        <td>Phone Number</td>&nbsp;
+        <td>PartnerID</td>&nbsp;
+        <td>Shop Name</td>&nbsp;
+        <td>Date Checked In</td>&nbsp;
+        <td>BikeID</td>&nbsp;
+        <td>Bike Name</td>&nbsp;
+        <td>App user?</td>&nbsp;
+        </tr>
+    </thead>
+    <tbody class="table-striped table-success">
+        <tr mat-row  *ngFor="let UserVal of mergeDetails">
+        <td><span>{{UserVal.userID}} </span></td>&nbsp;
+        <td><span>{{UserVal.name}}</span></td>&nbsp;
+        <td><span>{{UserVal.surname}}</span></td>&nbsp;
+        <td><span>{{UserVal.email}}</span></td>&nbsp;
+        <td><span>{{UserVal.phoneNumber}}</span></td>&nbsp;
+        <td><span>{{UserVal.partnerID}}</span></td>&nbsp;
+        <td><span>{{UserVal.shop_Name}}</span></td>&nbsp;
+        <td><span>{{UserVal.dateCheckedIn}}</span></td>&nbsp;
+        <td><span>{{UserVal.bikeID}}</span></td>&nbsp;
+        <td><span>{{UserVal.bike_Name}}</span></td>&nbsp;
+        <td><span>{{UserVal.app_User}}</span></td>&nbsp;
+        </tr>
+        
+    </tbody>
+</table>
+<br>
+<br>
+    <h4 *ngIf="show">To begin Merging, please enter the following details below:</h4>
+    <form [formGroup]="form" (ngSubmit)="submitMergeForm()" *ngIf="show">
+        <div class="form-group input-group-lg">
+            <input class="form-control" placeholder="Email" formControlName="email"> <!--<tr ng-repeat="employee in employees">  -->
+        </div>
+        <br>
+        <div class="form-group input-group-lg">
+            <input class="form-control" placeholder="PhoneNumber" formControlName="phoneNumber"> <!--<tr ng-repeat="employee in employees">  -->
+        </div>
+        <br>
+        <div class="form-group input-group-lg">
+            <input class="form-control" placeholder="user ID to keep" formControlName="userIdKeep"> <!--<tr ng-repeat="employee in employees">  -->
+        </div>
+        <br>
+    
+        <div class="form-group input-group-lg">
+            <input class="form-control" placeholder="user ID to unlink" formControlName="userIdUnlink">
+        </div>
+        <br>
+        <br>
+        <h4>If there are duplicate bikes linked,</h4>
+        <h4>Enter the ID of the bike you want to keep</h4>
+        <div class="form-group input-group-lg">
+            <input class="form-control" placeholder="bike ID to keep" formControlName="bikeIDKeep">
+        </div>
+        <h4>Enter the ID of the bike you want to unlink from user details</h4>
+        <div class="form-group input-group-lg">
+            <input class="form-control" placeholder="bike ID to unlink" formControlName="bikeIDUnlink">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-danger btn-block btn-lg">Submit</button>
+        </div>
+    </form>
+
+
+</div>
+
+
+
+
+ <!--   <div class="col-md-6 rnd">
+    <h4 class="lblwhite ">Merge Details</h4>
+    <form  #form="ngForm" onsubmit="return getMergeDetails();">
+    <div class="form-group"> 
+    <label for="email" class="lblwhite">User Email:</label>
+    <input type="text" required="true" name="email" [(ngModel)]="mergeDetails.email" #email="ngModel" class="form-control"
+    id="usr">
+    </div>
+    <div class="form-group">
+    <label for="phone" class="lblwhite">PhoneNumber:</label>
+    <input type="text" required="true" name="phone" [(ngModel)]="mergeDetails.phone" #phone="ngModel" class="form-control"
+    id="pwd">
+    </div>
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+    <div *ngIf="email.errors">
+    Name is required.
+    </div>
+    </div>
+    
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+    </div>
+    <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Submit</button>
+    </form>
+    </div>  -->
+    
+
